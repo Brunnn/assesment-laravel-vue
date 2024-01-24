@@ -1,0 +1,35 @@
+/*
+    Here is the structure of the Filter/Search Payload.
+
+    The parameters are placed in the query string of the request, using URI encoding.
+    example: ?filters=uri_encoded_json_string&search=mysearch
+*/
+{
+    "search": "string", //search string
+    "filters": [
+        {
+            "column": "column_name",
+            "junction": "and|or|AND|OR", //determines how the conditions are joined together
+            "conditions": [
+                {
+                    "filterType": "text|date|number",
+
+                    //case filterType=TEXT
+                    "value": "string",
+                    "operation": "contains",
+
+                    /* ---------------------------- */
+                    //case filterType=NUMBER
+                    "operation": "equals|lessThan|greaterThan",
+                    "value": "number",
+                
+
+                    /* ---------------------------- */
+                    //case filterType=DATE
+                    "operation": "equals|lessThan|greaterThan",
+                    "value": "ISO 8601 date"
+                }
+            ]
+        }
+    ]
+}
