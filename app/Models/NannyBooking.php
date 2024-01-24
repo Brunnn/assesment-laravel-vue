@@ -11,6 +11,8 @@ class NannyBooking extends Model
 
     protected $table = 'nanny_bookings';
 
+    protected $with = ['user'];
+
     protected $casts = [
         'start_at' => 'datetime',
         'end_at' => 'datetime',

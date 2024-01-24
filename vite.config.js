@@ -18,6 +18,13 @@ export default defineConfig({
             },
         }),
     ],
+
+    css: {
+        preprocessorOptions: {
+            scss: {},
+        },
+    },
+
     resolve: {
         alias: [
             //Typescript aliases
@@ -25,6 +32,6 @@ export default defineConfig({
                 find: "@",
                 replacement: path.resolve("./resources"),
             },
-        ]
-    }
+        ],
+    },
 });
